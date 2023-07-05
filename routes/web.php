@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $posts = Post::latest()->get();
+    $posts = Post::with('user')->latest()->get();
 
     return view('posts.index', [
         'posts' => $posts
